@@ -30,7 +30,7 @@ discord：[WTF Academy](https://discord.gg/5akcruXrsk)
     }
 ```
 
-注意，这个方法并不安全：
+**注意:**，这个方法并不安全：
 - 首先，`block.number`，`msg.sender`和`blockhash(block.timestamp-1)`这些变量都是公开的，使用者可以预测出用这些种子生成出的随机数，并挑出他们想要的随机数执行合约。
 - 其次，矿工可以操纵`blockhash`和`block.timestamp`，使得生成的随机数符合他的利益。
 
@@ -259,19 +259,28 @@ contract Random is ERC721, VRFConsumerBase{
 ![Rinkeby测试网领取LINK和ETH](./img/39-3.png)
 
 ### 3. 将`LINK`代币转入`Random`合约
-合约部署后，拷贝合约地址，像普通转账一样，通过metamask转账LINK到合约地址
+
+合约部署后，拷贝合约地址，像普通转账一样，通过小狐狸钱包转账LINK到合约地址
 ![LINK转入合约](./img/39-4.png)
 
 ### 4. 利用链上随机数铸造`NFT`
+
+在Remix界面中，点击左侧橙色函数mintRandomOnchain![minOnchain](./imp/39-5-1.png),在弹出的小狐狸钱包中点击确认，利用链上随机数铸造交易就开始了
+
 ![链上随机数铸造](./img/39-5.png)
 
 ### 5. 利用`Chainlink VRF`链下随机数铸造`NFT`
-***注意，采用VRF铸造NFT时，发起交易和铸造成功不在同一个区块 ***
+
+同理，在Remix界面中，点击左侧橙色函数mintRandomVRF，在弹出的小狐狸钱包中点击确认，利用Chainlink VRF链下随机数铸造交易就开始了
+
+**注意:** 采用VRF铸造NFT时，发起交易和铸造成功不在同一个区块
+
 ![VRF铸造开始交易](./img/39-6.png)
 ![VRF铸造成功交易](./img/39-7.png)
 
 ### 6. 验证`NFT`已被铸造
-本例中，tokenId为87的被线上随机铸造出来，tokenId=77的被VRF铸造出来。
+
+通过以上截图可以看出,本例中，tokenId=87的NFT被链上随机铸造出来，tokenId=77的NFT被VRF铸造出来。
 
 ## 总结
 
