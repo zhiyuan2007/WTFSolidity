@@ -14,7 +14,7 @@ discord：[WTF Academy](https://discord.gg/5akcruXrsk)
 
 ## 链上随机数生成
 
-我们可以一些链上的全局变量作为种子，利用`keccak256()`哈希函数来获取伪随机数。这是因为哈希函数具有灵敏性和均一性，可以得到“看似”随机的结果。下面的`getRandomOnchain()`函数利用全局变量`block.number`，`msg.sender`和`blockhash(block.timestamp-1)`作为种子来获取随机数：
+我们可以将一些链上的全局变量作为种子，利用`keccak256()`哈希函数来获取伪随机数。这是因为哈希函数具有灵敏性和均一性，可以得到“看似”随机的结果。下面的`getRandomOnchain()`函数利用全局变量`block.number`，`msg.sender`和`blockhash(block.timestamp-1)`作为种子来获取随机数：
 
 ```solidity
     /** 
@@ -177,7 +177,7 @@ contract Random is ERC721, VRFConsumerBase{
         ERC721("WTF Random", "WTF")
     {
         keyHash = 0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311;
-        fee = 0.1 * 10 ** 18; // 0.1 LINK (VRF使用费，Rinkkeby测试网)
+        fee = 0.1 * 10 ** 18; // 0.1 LINK (VRF使用费，Rinkeby测试网)
     }
 ```
 
