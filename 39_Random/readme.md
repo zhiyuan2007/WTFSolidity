@@ -81,7 +81,7 @@ contract RandomNumberConsumer is VRFConsumerBase {
         )
     {
         keyHash = 0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311;
-        fee = 0.1 * 10 ** 18; // 0.1 LINK (VRF使用费，Rinkkeby测试网)
+        fee = 0.1 * 10 ** 18; // 0.1 LINK (VRF使用费，Rinkeby测试网)
     }
 ```
 **2. 用户合约申请随机数** 
@@ -252,19 +252,26 @@ contract Random is ERC721, VRFConsumerBase{
 ```
 ## `remix`验证
 
-待社区成员补充。
-
 ### 1. 在`Rinkeby`测试网部署`Random`合约
+![合约部署](./img/39-2.png)
 
 ### 2. 利用`Chainlink`水龙头获取测试网的`LINK`和`ETH`
+![Rinkeby测试网领取LINK和ETH](./img/39-3.png)
 
 ### 3. 将`LINK`代币转入`Random`合约
+合约部署后，拷贝合约地址，像普通转账一样，通过metamask转账LINK到合约地址
+![LINK转入合约](./img/39-4.png)
 
 ### 4. 利用链上随机数铸造`NFT`
+![链上随机数铸造](./img/39-5.png)
 
 ### 5. 利用`Chainlink VRF`链下随机数铸造`NFT`
+***注意，采用VRF铸造NFT时，发起交易和铸造成功不在同一个区块 ***
+![VRF铸造开始交易](./img/39-6.png)
+![VRF铸造成功交易](./img/39-7.png)
 
 ### 6. 验证`NFT`已被铸造
+本例中，tokenId为87的被线上随机铸造出来，tokenId=77的被VRF铸造出来。
 
 ## 总结
 
