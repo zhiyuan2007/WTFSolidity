@@ -265,7 +265,7 @@ contract Random is ERC721, VRFConsumerBase{
 
 ### 4. 利用链上随机数铸造`NFT`
 
-在Remix界面中，点击左侧橙色函数mintRandomOnchain![minOnchain](./imp/39-5-1.png),在弹出的小狐狸钱包中点击确认，利用链上随机数铸造交易就开始了
+在Remix界面中，点击左侧橙色函数mintRandomOnchain![minOnchain](./img/39-5-1.png),在弹出的小狐狸钱包中点击确认，利用链上随机数铸造交易就开始了
 
 ![链上随机数铸造](./img/39-5.png)
 
@@ -280,7 +280,7 @@ contract Random is ERC721, VRFConsumerBase{
 
 ### 6. 验证`NFT`已被铸造
 
-通过以上截图可以看出,本例中，tokenId=87的NFT被链上随机铸造出来，tokenId=77的NFT被VRF铸造出来。
+通过以上截图可以看出，本例中，tokenId=87的NFT被链上随机铸造出来，tokenId=77的NFT被VRF铸造出来。
 
 ## 总结
 
